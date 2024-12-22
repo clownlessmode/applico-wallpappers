@@ -30,7 +30,7 @@ const Hero: FC<Props> = ({ title, description = true }) => {
   return (
     <section
       style={{
-        backgroundImage: 'url(/assets/hero-bg.png)',
+        backgroundImage: 'url(/assets/hero-bg.svg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
