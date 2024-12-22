@@ -6,6 +6,8 @@ import Link from 'next/link';
 import Title from '@/src/shared/ui/Title';
 import { Button } from '@/src/shared/ui/button';
 import { cn } from '@/src/shared/lib/utils';
+import Section from '@/src/shared/ui/containers/Section';
+import Text from '@/src/shared/ui/Text';
 
 import ExamplesCarousel from '../../feautres/examples-carousel/ExamplesCarousel';
 
@@ -26,27 +28,31 @@ const schewrons = [
 
 const Examples: FC = () => {
   return (
-    <section
-      className="flex flex-col gap-[64px] py-[72px] px-[50px] bg-foreground"
+    <Section
+      background={'dark'}
       id="cases"
+      className="lg:py-[50px] md:py-5 sm:py-4"
     >
-      <div className="flex w-full justify-between">
-        <Title color="white">
+      <div className="flex justify-between items-start w-full gap-12">
+        <Title color="white" className="whitespace-nowrap">
           Как выглядят наши
           <br />
           обои у клиентов?
         </Title>
-        <div className="grid grid-cols-2 gap-[10px] max-w-[658px] h-[78px] justify-start items-start">
+        <div className="flex flex-row flex-wrap gap-2 max-h-20 justify-end">
           {schewrons.map((item, index) => (
             <div
               key={index}
-              className="border-background border h-[33px] w-[324px] flex items-center text-center justify-center text-background rounded-full"
+              className="border border-background h-8 w-full flex items-center justify-center rounded-full px-3 max-w-[300px]"
             >
-              {item.title}
+              <Text color={'white'} textSize={'medium'}>
+                {item.title}
+              </Text>
             </div>
           ))}
         </div>
       </div>
+
       <div className="flex gap-[30px] items-center">
         <Link href={'catalog'}>
           <Button variant={'light'}>
@@ -61,14 +67,14 @@ const Examples: FC = () => {
             В каталог
           </Button>
         </Link>
-        <p className="text-background leading-[24px] text-[22px]">
+        <Text textSize={'large'}>
           Более 10000 реализованных
           <br />
           проектов под ключ
-        </p>
+        </Text>
       </div>
       <ExamplesCarousel />
-    </section>
+    </Section>
   );
 };
 

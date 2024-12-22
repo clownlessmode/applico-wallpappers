@@ -7,6 +7,7 @@ import { ChevronUp } from 'lucide-react';
 import { Input } from '@/src/shared/ui/input';
 import filters from '@/src/widgets/catalogue/filters';
 import { Checkbox } from '@/src/shared/ui/checkbox';
+import Text from '@/src/shared/ui/Text';
 
 // Типы для фильтров и обоев
 // interface FilterItem {
@@ -144,7 +145,7 @@ const SidebarFilters: FC<Props> = ({
   };
 
   return (
-    <div className="sidebar gap-[50px] max-w-[300px] bg-foreground w-full p-[28px] h-fit">
+    <div className="sidebar md:max-w-full gap-[50px] lg:max-w-[300px] bg-foreground w-full p-[28px] h-fit">
       <Input
         className="w-full"
         placeholder="Поиск..."
@@ -168,7 +169,7 @@ const SidebarFilters: FC<Props> = ({
                 >
                   <ChevronUp className="h-4 w-4" />
                 </motion.div>
-                <span className="text-[15px]">{item.title}</span>
+                <Text textSize={'large'}>{item.title}</Text>
               </motion.button>
               <AnimatePresence initial={false}>
                 {isOpen && (
@@ -244,9 +245,7 @@ const SidebarFilters: FC<Props> = ({
                                 )
                               }
                             />
-                            <span className="text-[14px]">
-                              {filterItem.title}
-                            </span>
+                            <Text textSize={'medium'}>{filterItem.title}</Text>
                           </div>
                         ))
                       )}

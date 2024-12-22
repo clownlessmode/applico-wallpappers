@@ -6,13 +6,18 @@ import Link from 'next/link';
 
 import { Button } from '@/src/shared/ui/button';
 import { cn } from '@/src/shared/lib/utils';
+import Section from '@/src/shared/ui/containers/Section';
+import Text from '@/src/shared/ui/Text';
 
 import links from '../header/links';
 
 const Footer: FC = () => {
   return (
-    <footer className="w-screen bg-foreground py-[50px] text-background mx-auto mt-[150px]">
-      <div className="max-w-[1530px] mx-auto flex justify-between">
+    <footer className="w-screen bg-foreground text-background mt-[150px]">
+      <Section
+        background={'dark'}
+        className="max-w-[1530px] mx-auto lg:flex-row md:flex-col justify-between lg:py-[50px] md:py-5 sm:py-4"
+      >
         <div>
           <Image
             width={240}
@@ -20,9 +25,10 @@ const Footer: FC = () => {
             alt="applico"
             src={'/branding/applico.svg'}
           />
-          <p className="text-[14px] text-[#D6D6D6] mt-2 opacity-50">
-            © домен.ru - отделочные материалы
-          </p>
+          <Text className="opacity-40">
+            {' '}
+            © applico.ru - отделочные материалы
+          </Text>
           <Link href={'catalog'}>
             <Button variant={'light'} className="w-fit mt-[40px]">
               <div
@@ -37,9 +43,9 @@ const Footer: FC = () => {
             </Button>
           </Link>
         </div>
-        <div className="flex flex-row gap-[140px]">
+        <div className="flex flex-row gap-[40px]">
           <div>
-            <p className="text-[20px]">Разделы</p>
+            <Text textSize={'large'}>Разделы</Text>
             <div className="flex flex-col gap-3 mt-[20px]">
               {links.map((item, index) => (
                 <Link
@@ -47,38 +53,50 @@ const Footer: FC = () => {
                   key={index}
                   href={item.href}
                 >
-                  {item.title}
+                  <Text textSize={'medium'}> {item.title}</Text>
                 </Link>
               ))}
             </div>
           </div>
           <div className="flex flex-col gap-5">
-            <p className="text-[16px]">
+            <Text textSize={'large'}>
               Санкт-Петербург, ТК Ланской,
               <br />
               Студенческая ул., д. 10
-            </p>
-            <p className="text-[16px]">
+            </Text>
+            <Text textSize={'large'}>
               Санкт-Петербург, ТК Василеостровский,
               <br />
               Железноводская ул, д. 3
-            </p>
-            <p className="text-[16px] underline opacity-50 hover:opacity-100">
-              Сайт создал - Роман Калинин
-            </p>
+            </Text>
+            <Link href={'https://t.me/durov'}>
+              <Text
+                textSize={'medium'}
+                className="underline opacity-50 hover:opacity-100"
+              >
+                Дизайн разработал - Роман Калинин
+              </Text>
+            </Link>
+            <Link href={'https://t.me/purpletooth'}>
+              <Text
+                textSize={'medium'}
+                className="underline opacity-50 hover:opacity-100"
+              >
+                Сайт разработал - Родион Коваленко
+              </Text>
+            </Link>
           </div>
           <div className="flex flex-col gap-5">
-            <p className="text-[16px]">
+            <Text textSize={'large'}>
               Санкт-Петербург, ТК Варшавский экспресс, <br />
               наб. Обводного канала 118Б
-            </p>
-
-            <Link href={'privacy-policy'} className="text-[16px] underline">
-              Политика конфиденциальности
+            </Text>
+            <Link href={'privacy-policy'} className="underline">
+              <Text textSize={'medium'}>Политика конфиденциальности</Text>
             </Link>
           </div>
         </div>
-      </div>
+      </Section>
     </footer>
   );
 };

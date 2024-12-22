@@ -3,6 +3,7 @@ import type { FC } from 'react';
 import React, { useState } from 'react';
 
 import Title from '@/src/shared/ui/Title';
+import Section from '@/src/shared/ui/containers/Section';
 
 import SidebarFilters from '../../feautres/sidebar-filters/SidebarFilters';
 import WallpappersList from './WallpappersList';
@@ -25,9 +26,9 @@ const Catalogue: FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col gap-[30px]">
+    <Section className="min-h-screen">
       <Title>Каталог</Title>
-      <aside className="flex gap-[55px]">
+      <aside className="flex gap-[55px] md:flex-col-reverse lg:flex-row">
         <SidebarFilters
           openItems={openItems}
           toggleItem={toggleItem}
@@ -37,7 +38,7 @@ const Catalogue: FC = () => {
         />
         <WallpappersList data={filteredData} />
       </aside>
-    </div>
+    </Section>
   );
 };
 

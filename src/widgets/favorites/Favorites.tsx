@@ -1,8 +1,8 @@
 'use client';
 import type { FC } from 'react';
 
-import Title from '@/src/shared/ui/Title';
 import { useFavoritesStore } from '@/src/shared/stores/useFavoriteStore';
+import Section from '@/src/shared/ui/containers/Section';
 
 import WallpappersList from '../catalogue/WallpappersList';
 
@@ -10,12 +10,11 @@ const Favorites: FC = () => {
   const { favorites: FAV } = useFavoritesStore();
 
   return (
-    <section className="h-[5000px] mt-[100px]">
-      <Title>Избранное</Title>
+    <Section className="min-h-screen mt-[100px]" text={'Избранное'}>
       <div className="mt-[50px]">
         <WallpappersList data={FAV} />
       </div>
-    </section>
+    </Section>
   );
 };
 

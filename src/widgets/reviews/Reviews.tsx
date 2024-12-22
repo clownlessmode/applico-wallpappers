@@ -6,6 +6,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Title from '@/src/shared/ui/Title';
 import ReviewsCarousel from '@/src/feautres/reviews-carousel/ReviewsCarousel';
 import type { CarouselApi } from '@/src/shared/ui/carousel';
+import Section from '@/src/shared/ui/containers/Section';
 
 const Reviews: FC = () => {
   const [api, setApi] = useState<CarouselApi>();
@@ -23,7 +24,7 @@ const Reviews: FC = () => {
   }, [api]);
 
   return (
-    <section className="flex flex-col gap-[50px] relative" id="reviews">
+    <Section className="relative" id="reviews">
       <div className="flex w-full justify-between">
         <Title>Отзывы покупателей:</Title>
         <div className="flex gap-[20px] text-background">
@@ -43,7 +44,7 @@ const Reviews: FC = () => {
       </div>
 
       <ReviewsCarousel setApi={setApi} />
-    </section>
+    </Section>
   );
 };
 

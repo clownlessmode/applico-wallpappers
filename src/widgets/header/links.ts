@@ -9,19 +9,19 @@ const links = [
   },
   {
     title: 'Кейсы',
-    href: '/',
+    href: '#cases',
   },
   {
     title: 'Отзывы',
-    href: '/',
+    href: '#reviews',
   },
   {
     title: 'Консультация',
-    href: '/',
+    href: '#request',
   },
   {
     title: 'Вопрос-ответ',
-    href: '/',
+    href: '#faq',
   },
 ];
 

@@ -2,23 +2,31 @@ import type { FC } from 'react';
 import Image from 'next/image';
 
 import Title from '@/src/shared/ui/Title';
+import Section from '@/src/shared/ui/containers/Section';
+import Text from '@/src/shared/ui/Text';
 
 import SendRequestForm from '../../feautres/send-request-form/SendRequestForm';
 
 const SendRequest: FC = () => {
   return (
-    <section className="w-full flex gap-[30px] h-[900px]" id="request">
-      <div className="bg-foreground p-[50px] h-full w-full flex flex-col">
-        <Title color="#FCFAF7">
-          ОСТАВЬТЕ ЗАЯВКУ И ПОЛУЧИТЕ КОНСУЛЬТАЦИЮ НАШЕГО ЭКСПЕРТА
-        </Title>
-        <p className="text-background/40 text-[18px] leading-[20px]">
-          На консультации мы обсудим, какие обои подойдут
-          <br />
-          под ваш ремонт и все оставшиеся вопросы
-        </p>
+    <div className="grid lg:grid-cols-1 xl:grid-cols-2 gap-6 md:grid-cols-1">
+      <Section
+        className="flex-col xl:py-[50px] lg:py-[50px] md:py-5 sm:py-4"
+        background={'dark'}
+        id={'request'}
+      >
+        <div className="flex flex-col">
+          <Title color="#FCFAF7">
+            ОСТАВЬТЕ ЗАЯВКУ И ПОЛУЧИТЕ КОНСУЛЬТАЦИЮ НАШЕГО ЭКСПЕРТА
+          </Title>
+          <Text className="opacity-40" textSize={'medium'}>
+            На консультации мы обсудим, какие обои подойдут
+            <br />
+            под ваш ремонт и все оставшиеся вопросы
+          </Text>
+        </div>
         <SendRequestForm />
-      </div>
+      </Section>
       <Image
         alt="1"
         src={
@@ -26,9 +34,9 @@ const SendRequest: FC = () => {
         }
         width={750}
         height={879}
-        className="w-[750px] h-full object-cover"
+        className="w-full h-full object-cover xl:block hidden"
       />
-    </section>
+    </div>
   );
 };
 

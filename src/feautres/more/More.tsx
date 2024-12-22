@@ -14,7 +14,7 @@ const More: FC<Props> = ({ data }) => {
       <DialogTrigger asChild>
         <Button
           variant={'dark'}
-          className="w-[114px] h-[43px] text-[13px] mr-[6px]"
+          className="w-[114px] h-[43px] text-[14px] mr-[6px]"
         >
           <p className="invisible"></p>
           Подробнее

@@ -9,7 +9,7 @@ import { Checkbox } from '@/src/shared/ui/checkbox';
 
 const SendRequestForm: FC = () => {
   return (
-    <form className="flex flex-col gap-[10px] mt-[46px]">
+    <form className="flex flex-col gap-[10px]">
       <Input placeholder="Ваше имя" className="rounded-none h-[74px]" />
       <Input
         placeholder="+7 (999) 999-99-99"
@@ -29,7 +29,7 @@ const SendRequestForm: FC = () => {
           </Link>
         </p>
       </div>
-      <Button variant={'light'} className="w-fit mt-[40px]">
+      <Button variant={'light'} className="w-fit mt-[24px]">
         <div
           className={cn(
             'rounded-full flex text-background items-center justify-center w-[38.95px] h-[38.95px]',

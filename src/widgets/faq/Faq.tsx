@@ -1,13 +1,13 @@
 import type { FC } from 'react';
 import React from 'react';
 
-import Title from '@/src/shared/ui/Title';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/src/shared/ui/accordion';
+import Section from '@/src/shared/ui/containers/Section';
 
 const items = [
   {
@@ -114,27 +114,29 @@ const items = [
 
 const Faq: FC = () => {
   return (
-    <section className="w-full flex gap-[30px]" id="faq">
-      <div className="bg-foreground p-[50px] h-full w-full flex flex-col">
-        <Title color="#FCFAF7">Отвечаем на частые вопросы</Title>
-        <Accordion type="single" collapsible className="mt-[43px]">
-          {items.map((item, index) => (
-            <AccordionItem
-              key={index}
-              value={`${index}`}
-              className="bg-background mt-[20px] px-[20px] py-[29px]"
-            >
-              <AccordionTrigger className="subfont text-[30px] leading-[25px]">
-                {item.title}
-              </AccordionTrigger>
-              <AccordionContent className="text-[16px] leading-[20px]">
-                {item.content}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </div>
-    </section>
+    <Section
+      background={'dark'}
+      text={'Отвечаем на частые вопросы'}
+      id="faq"
+      className="lg:py-[50px] md:py-5 sm:py-4"
+    >
+      <Accordion type="single" collapsible>
+        {items.map((item, index) => (
+          <AccordionItem
+            key={index}
+            value={`${index}`}
+            className="bg-background px-[20px] py-[29px]"
+          >
+            <AccordionTrigger className="subfont text-[30px] leading-[25px]">
+              {item.title}
+            </AccordionTrigger>
+            <AccordionContent className="text-[16px] leading-[20px]">
+              {item.content}
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
+    </Section>
   );
 };
 
