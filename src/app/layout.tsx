@@ -10,6 +10,7 @@ import Footer from '@/src/widgets/footer/Footer';
 import Header from '../widgets/header/Header';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://applico-wallpappers.vercel.app/'), // Указываем базовый URL
   title: 'Дизайнерские обои и фрески ручной отрисовки в Санкт-Петербурге',
   description:
     'Эксклюзивные дизайнерские обои и фрески ручной работы в Санкт-Петербурге. Уникальные авторские дизайны для интерьера. Закажите сейчас!',
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
     siteName: 'Дизайнерские обои и фрески ручной отрисовки в Санкт-Петербурге',
     images: [
       {
-        url: '/assets/og-image.png',
+        url: '/assets/og-image.png', // Путь будет дополнен базовым URL
         width: 835,
         height: 638,
         alt: 'Дизайнерские обои и фрески',
