@@ -17,7 +17,8 @@ const SendRequest: FC = () => {
       >
         <div className="flex flex-col">
           <Title color="#FCFAF7">
-            ОСТАВЬТЕ ЗАЯВКУ И ПОЛУЧИТЕ КОНСУЛЬТАЦИЮ НАШЕГО ЭКСПЕРТА
+            ОСТАВЬТЕ ЗАЯВКУ
+            <br />И ПОЛУЧИТЕ КОНСУЛЬТАЦИЮ НАШЕГО ЭКСПЕРТА
           </Title>
           <Text className="opacity-40" textSize={'medium'}>
             На консультации мы обсудим, какие обои подойдут
