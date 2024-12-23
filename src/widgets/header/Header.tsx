@@ -135,6 +135,21 @@ const Header: FC = () => {
                 className={scrolled ? 'text-foreground' : 'text-background'}
               />
             </Link>
+            <Link href={'catalog'}>
+              <Button variant={scrolled ? 'dark' : 'light'}>
+                <div
+                  className={cn(
+                    'rounded-full flex text-background items-center justify-center w-[38.95px] h-[38.95px]',
+                    scrolled
+                      ? 'bg-foreground text-background'
+                      : 'bg-background text-foreground',
+                  )}
+                >
+                  <ArrowUpRight />
+                </div>
+                {isCatalogPage ? 'На главную' : 'В каталог'}
+              </Button>
+            </Link>
           </div>
         </div>
 
