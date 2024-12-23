@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation'; // Импортируем usePath
 
 import { Button } from '@/src/shared/ui/button';
 import { Input } from '@/src/shared/ui/input';
-// import Search from '@/src/feautres/search/Search';
+import Search from '@/src/feautres/search/Search';
 import { cn } from '@/src/shared/lib/utils';
 import Text from '@/src/shared/ui/Text';
 
@@ -126,7 +126,7 @@ const Header: FC = () => {
 
           {/* Поиск, избранное и кнопка, видны на всех экранах */}
           <div className="flex gap-[20px] items-center">
-            {/* <Search scrolled={scrolled} /> */}
+            <Search scrolled={scrolled} />
             <Input className="hidden" />
             <Link href={'favorites'}>
               <Heart
@@ -135,8 +135,6 @@ const Header: FC = () => {
               />
             </Link>
           </div>
-
-          {/* Бургер-меню для экранов меньше 1200px */}
         </div>
 
         {/* Бургер-меню (при открытии) */}

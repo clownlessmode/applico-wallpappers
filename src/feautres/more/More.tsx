@@ -1,8 +1,8 @@
 import type { FC } from 'react';
 import Image from 'next/image';
 
-import { Button } from '@/src/shared/ui/button';
 import { Dialog, DialogContent, DialogTrigger } from '@/src/shared/ui/dialog';
+import Text from '@/src/shared/ui/Text';
 
 import type { Wallpaper } from '../sidebar-filters/SidebarFilters';
 interface Props {
@@ -12,19 +12,15 @@ const More: FC<Props> = ({ data }) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button
-          variant={'dark'}
-          className="w-[114px] h-[43px] text-[14px] mr-[6px]"
-        >
-          <p className="invisible"></p>
-          Подробнее
-        </Button>
+        <button className="text-[14px] border border-foreground w-[114px] h-[43px] bg-background rounded-full hover:scale-105 transition-all">
+          <Text color={'black'}>Подробнее</Text>
+        </button>
       </DialogTrigger>
       <DialogContent className="w-full max-w-[1530px] px-[50px] py-[141px] flex flex-row items-start justify-start">
         <div>
           <Image
             alt=""
-            src={'/assets/hero-bg.png'}
+            src={data.imageUrl}
             width={373}
             height={373}
             className="aspect-video object-cover w-[700px] "
@@ -39,33 +35,30 @@ const More: FC<Props> = ({ data }) => {
             <div className="flex flex-row gap-[10px] ">
               <Image
                 alt=""
-                src={'/assets/hero-bg.png'}
+                src={data.imageUrl}
                 width={40}
                 height={40}
                 className="aspect-square object-cover w-[40px] rounded-full"
               />
               <Image
                 alt=""
-                src={'/assets/hero-bg.png'}
+                src={data.imageUrl}
                 width={40}
                 height={40}
                 className="aspect-square object-cover w-[40px] rounded-full"
               />
               <Image
                 alt=""
-                src={'/assets/hero-bg.png'}
+                src={data.imageUrl}
                 width={40}
                 height={40}
                 className="aspect-square object-cover w-[40px] rounded-full"
               />
             </div>
           </div>
-          <Button
-            variant={'light'}
-            className="w-[114px] h-[43px] text-[13px] mr-[6px] bg-foreground"
-          >
-            Купить
-          </Button>
+          <button className="text-[14px] w-[114px] h-[43px] bg-foreground rounded-full hover:scale-105 transition-all">
+            <Text>Купить</Text>
+          </button>
         </div>
       </DialogContent>
     </Dialog>

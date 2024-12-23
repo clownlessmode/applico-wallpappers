@@ -3,7 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 
 import type { Wallpaper } from '@/src/feautres/sidebar-filters/SidebarFilters';
-import { Button } from '@/src/shared/ui/button';
+// import { Button } from '@/src/shared/ui/button';
 import More from '@/src/feautres/more/More';
 import AddToFavorites from '@/src/feautres/add-to-favorites/AddToFavorites';
 import Text from '@/src/shared/ui/Text';
@@ -33,13 +33,9 @@ const WallpepperItem: FC<Props> = ({ data }) => {
         </div>
         <div className="flex flex-row gap-y-1 gap-x-1 flex-wrap justify-end">
           <More data={data} />
-          <Button
-            className="text-[14px] w-[114px] h-[43px] bg-foreground "
-            variant={'light'}
-          >
-            <p className="invisible"></p>
-            Купить
-          </Button>
+          <button className="text-[14px] w-[114px] h-[43px] bg-foreground rounded-full hover:scale-105 transition-all">
+            <Text>Купить</Text>
+          </button>
         </div>
       </div>
       <div className="w-full flex justify-between p-[10px] top-0 left-0 absolute">

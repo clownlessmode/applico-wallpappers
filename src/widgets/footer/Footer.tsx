@@ -53,7 +53,10 @@ const Footer: FC = () => {
                   key={index}
                   href={item.href}
                 >
-                  <Text textSize={'medium'}> {item.title}</Text>
+                  <Text textSize={'medium'} className="text-nowrap">
+                    {' '}
+                    {item.title}
+                  </Text>
                 </Link>
               ))}
             </div>
@@ -74,14 +77,6 @@ const Footer: FC = () => {
                 className="underline opacity-50 hover:opacity-100"
               >
                 Дизайн разработал - Роман Калинин
-              </Text>
-            </Link>
-            <Link href={'https://t.me/purpletooth'}>
-              <Text
-                textSize={'medium'}
-                className="underline opacity-50 hover:opacity-100"
-              >
-                Сайт разработал - Родион Коваленко
               </Text>
             </Link>
           </div>

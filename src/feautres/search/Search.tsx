@@ -1,7 +1,7 @@
 'use client';
 import { AnimatePresence, motion } from 'motion/react';
 import { SearchIcon } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import type { FC } from 'react';
 
 import { Input } from '@/src/shared/ui/input';
@@ -13,9 +13,27 @@ interface Props {
 
 const Search: FC<Props> = ({ scrolled }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const searchRef = useRef<HTMLDivElement>(null);
+
+  // Закрыть поиск при клике вне компонента
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        searchRef.current &&
+        !searchRef.current.contains(event.target as Node)
+      ) {
+        setIsVisible(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
-    <div>
+    <div ref={searchRef}>
       <button
         onClick={() => setIsVisible((prev) => !prev)}
         aria-label="Показать поиск"
@@ -33,7 +51,7 @@ const Search: FC<Props> = ({ scrolled }) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="absolute top-[94px] left-0 w-full z-20 flex justify-center px-[50px]"
+            className="absolute top-[140px] left-0 w-full z-20 flex justify-center px-[50px]"
           >
             <Input
               className="w-full max-w-[95.625rem]"
