@@ -16,7 +16,7 @@ const More: FC<Props> = ({ data }) => {
           <Text color={'black'}>Подробнее</Text>
         </button>
       </DialogTrigger>
-      <DialogContent className="w-full max-w-[1530px] px-[50px] py-[141px] flex flex-row items-start justify-start">
+      <DialogContent className="w-full max-w-[1530px] px-[50px] py-[141px] flex md:flex-row flex-col items-start justify-start">
         <div>
           <Image
             alt=""
@@ -26,8 +26,8 @@ const More: FC<Props> = ({ data }) => {
             className="aspect-video object-cover w-[700px] "
           />
         </div>
-        <div className="flex justify-between flex-col">
-          <div className="flex flex-col gap-[20px] h-[350px]">
+        <div className="flex justify-start md:justify-between flex-col">
+          <div className="flex flex-col gap-[20px] md:h-[350px]">
             <h2 className="text-[40px] subfont">{data.title}</h2>
             <p className="text-[22px] ">От {data.price} ₽ / м²</p>
             <p className="text-foreground/40 ">VR.0046-A</p>
@@ -56,7 +56,7 @@ const More: FC<Props> = ({ data }) => {
               />
             </div>
           </div>
-          <button className="text-[14px] w-[114px] h-[43px] bg-foreground rounded-full hover:scale-105 transition-all">
+          <button className="mt-[20px] text-[14px] w-[114px] h-[43px] bg-foreground rounded-full hover:scale-105 transition-all">
             <Text>Купить</Text>
           </button>
         </div>
