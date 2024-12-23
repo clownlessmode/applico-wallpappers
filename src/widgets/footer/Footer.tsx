@@ -16,7 +16,7 @@ const Footer: FC = () => {
     <footer className="w-screen bg-foreground text-background mt-[150px]">
       <Section
         background={'dark'}
-        className="max-w-[1530px] mx-auto lg:flex-row md:flex-col justify-between lg:py-[50px] md:py-5 sm:py-4"
+        className="max-w-[1530px] mx-auto lg:flex-row md:flex-col justify-between lg:py-[50px] md:py-5 sm:py-4 py-4"
       >
         <div>
           <Image
@@ -43,8 +43,8 @@ const Footer: FC = () => {
             </Button>
           </Link>
         </div>
-        <div className="flex flex-row gap-[40px]">
-          <div>
+        <div className="flex flex-col-reverse md:flex-row md:gap-[40px] gap-[20px]">
+          <div className="md:block hidden">
             <Text textSize={'large'}>Разделы</Text>
             <div className="flex flex-col gap-3 mt-[20px]">
               {links.map((item, index) => (
@@ -60,13 +60,12 @@ const Footer: FC = () => {
           </div>
           <div className="flex flex-col gap-5">
             <Text textSize={'large'}>
-              Санкт-Петербург, ТК Ланской,
-              <br />
+              Санкт-Петербург, ТК Ланской, <br className="md:block hidden" />
               Студенческая ул., д. 10
             </Text>
             <Text textSize={'large'}>
-              Санкт-Петербург, ТК Василеостровский,
-              <br />
+              Санкт-Петербург, ТК Василеостровский,{' '}
+              <br className="md:block hidden" />
               Железноводская ул, д. 3
             </Text>
             <Link href={'https://t.me/durov'}>
@@ -88,10 +87,11 @@ const Footer: FC = () => {
           </div>
           <div className="flex flex-col gap-5">
             <Text textSize={'large'}>
-              Санкт-Петербург, ТК Варшавский экспресс, <br />
+              Санкт-Петербург, ТК Варшавский экспресс,{' '}
+              <br className="md:block hidden" />
               наб. Обводного канала 118Б
             </Text>
-            <Link href={'privacy-policy'} className="underline">
+            <Link href={'privacy-policy'} className="underline md:block hidden">
               <Text textSize={'medium'}>Политика конфиденциальности</Text>
             </Link>
           </div>

@@ -31,9 +31,9 @@ const Examples: FC = () => {
     <Section
       background={'dark'}
       id="cases"
-      className="lg:py-[50px] md:py-5 sm:py-4"
+      className="lg:py-[50px] md:py-5 sm:py-4 py-4"
     >
-      <div className="flex justify-between items-start w-full gap-12">
+      <div className="flex md:justify-between md:flex-row flex-col justify-normal items-start w-full gap-12 md:h-fit h-[300px]">
         <Title color="white" className="whitespace-nowrap">
           Как выглядят наши
           <br />
@@ -43,7 +43,7 @@ const Examples: FC = () => {
           {schewrons.map((item, index) => (
             <div
               key={index}
-              className="border border-background h-8 w-full flex items-center justify-center rounded-full px-3 max-w-[300px]"
+              className="border border-background h-8 w-full flex items-center justify-center rounded-full px-3 md:max-w-[300px]"
             >
               <Text color={'white'} textSize={'medium'}>
                 {item.title}
@@ -54,7 +54,7 @@ const Examples: FC = () => {
       </div>
 
       <div className="flex gap-[30px] items-center">
-        <Link href={'catalog'}>
+        <Link href={'catalog'} className="md:block hidden">
           <Button variant={'light'}>
             <div
               className={cn(
@@ -68,8 +68,7 @@ const Examples: FC = () => {
           </Button>
         </Link>
         <Text textSize={'large'}>
-          Более 10000 реализованных
-          <br />
+          Более 10000 реализованных <br className="hidden md:block" />
           проектов под ключ
         </Text>
       </div>

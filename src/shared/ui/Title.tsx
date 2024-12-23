@@ -13,7 +13,7 @@ const Title: FC<Props> = ({ children, color, className }) => {
   return (
     <h1
       className={cn(
-        'title  tracking-[0px] lg:text-[80px]  md:text-[60px] md:leading-[54px] sm:text-[40px] sm:leading-[36px] lg:leading-[80px]',
+        'title  tracking-[0px] lg:text-[80px]  md:text-[60px] md:leading-[54px] sm:text-[50px] sm:leading-[48px] lg:leading-[80px] text-[36px] leading-[32px]',
         className,
       )}
       style={{ color: color || 'var(--foreground)' }}

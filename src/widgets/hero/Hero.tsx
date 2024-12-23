@@ -1,4 +1,4 @@
-import type { FC, ReactNode } from 'react';
+import { Fragment, type FC, type ReactElement, type ReactNode } from 'react';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -34,19 +34,24 @@ const Hero: FC<Props> = ({ title, description = true }) => {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
-      className="lg:px-[50px] md:px-[20px] h-[586px] w-full lg:bg-orange-950 md:bg-orange-900 sm:bg-orange-800 text-background py-[30px] flex items-start justify-between flex-col"
+      className={cn(
+        'w-full text-background py-[30px] flex items-start justify-between flex-col ',
+        'lg:px-[50px] lg:bg-green-500',
+        'md:px-5 md:bg-yellow-500',
+        'sm:px-4 sm:bg-orange-500 sm:h-[586px]',
+        'px-3 bg-red-500 h-[540px]',
+      )}
     >
       <div className="invisible" />
-      <div className="flex lg:gap-[34px] md:gap-[18px] items-center ">
+      <div className="flex lg:gap-[34px] md:gap-[18px] gap-6 items-start md:items-center flex-col md:flex-row">
         <Title>{title}</Title>
         {description && (
-          <div className="flex flex-col lg:gap-[30px] md:gap-[15px]">
+          <div className="flex flex-col lg:gap-[30px] gap-[12px]">
             <Text textSize={'medium'}>
-              Более 20 лет на рынке
-              <br />
+              Более 20 лет на рынке{''} <br className="hidden sm:block" />
               отделочных материалов
             </Text>
-            <Link href="catalog">
+            <Link href="catalog" className="sm:block hidden">
               <Button variant={'light'}>
                 <div
                   className={cn(
@@ -64,29 +69,31 @@ const Hero: FC<Props> = ({ title, description = true }) => {
       </div>
       <div className="w-full">
         <div className="w-full h-px bg-[#5E5D5E]/50" />
-        <div className="flex flex-row w-full">
-          {advantages.map((item, index) => (
-            <>
-              <div className="w-full flex flex-col lg:gap-5 md:gap-4 sm:gap-3 py-[20px]">
-                <p className="sr-only">
-                  {item.title} - {item.description}
-                </p>
-                <Text textSize={'large'} color={'white'}>
-                  {item.title}
-                </Text>
-                <Text
-                  className="opacity-60"
-                  textSize={'medium'}
-                  color={'white'}
-                >
-                  {item.description}
-                </Text>
-              </div>
-              {index != advantages.length - 1 ? (
-                <div className="w-[1px] mr-[30px] bg-[#5E5D5E]/50 h-[91px]" />
-              ) : null}
-            </>
-          ))}
+        <div className="flex md:flex-row sm:flex-nowrap flex-wrap w-full">
+          {advantages.map(
+            (item, index): ReactElement => (
+              <Fragment key={index}>
+                <div className="w-full min-w-[180px] sm:max-w-full max-w-[180px] flex flex-col lg:gap-3 md:gap-2 sm:gap-2 gap-1 sm:py-[20px] py-2">
+                  <p className="sr-only">
+                    {item.title} - {item.description}
+                  </p>
+                  <Text textSize={'large'} color={'white'}>
+                    {item.title}
+                  </Text>
+                  <Text
+                    className="opacity-60"
+                    textSize={'medium'}
+                    color={'white'}
+                  >
+                    {item.description}
+                  </Text>
+                </div>
+                {index != advantages.length - 1 ? (
+                  <div className="w-[1px] mr-[30px] bg-[#5E5D5E]/50 h-[91px] sm:block hidden" />
+                ) : null}
+              </Fragment>
+            ),
+          )}
         </div>
       </div>
     </section>

@@ -43,9 +43,9 @@ const Usefulness: FC = () => {
         {items.map((item, index) => (
           <div
             key={index}
-            className="flex items-center gap-[48px] border border-foreground/20 p-[40px]"
+            className="flex items-center md:gap-[48px] sm:gap-5 gap-4 border border-foreground/20 md:p-[40px] sm:p-6 p-4"
           >
-            <div className="flex flex-col gap-[39px] w-full">
+            <div className="flex flex-col md:gap-[39px] sm:gap-5 gap-4 w-full">
               <h3 className="subfont text-[40px] leading-[28px]">
                 {item.title}
               </h3>
@@ -54,9 +54,9 @@ const Usefulness: FC = () => {
               </Text>
             </div>
             <Text
-              textSize={'large'}
+              textSize={'medium'}
               color={'black'}
-              className="shrink-0 border border-foreground/20 rounded-full flex items-center justify-center h-[58px] w-[58px]"
+              className="shrink-0 border border-foreground/20 rounded-full flex items-center justify-center md:h-[58px] md:w-[58px] h-[44px] w-[44px]"
             >
               0{index + 1}
             </Text>

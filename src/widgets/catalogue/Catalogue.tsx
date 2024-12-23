@@ -28,7 +28,7 @@ const Catalogue: FC = () => {
   return (
     <Section className="min-h-screen">
       <Title>Каталог</Title>
-      <aside className="flex gap-[55px] md:flex-col-reverse lg:flex-row">
+      <aside className="flex gap-[55px] flex-col-reverse lg:flex-row">
         <SidebarFilters
           openItems={openItems}
           toggleItem={toggleItem}

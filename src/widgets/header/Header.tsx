@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation'; // Импортируем usePath
 
 import { Button } from '@/src/shared/ui/button';
 import { Input } from '@/src/shared/ui/input';
-import Search from '@/src/feautres/search/Search';
+// import Search from '@/src/feautres/search/Search';
 import { cn } from '@/src/shared/lib/utils';
 import Text from '@/src/shared/ui/Text';
 
@@ -43,24 +43,26 @@ const Header: FC = () => {
     <div className="fixed w-screen top-0 z-10 mx-auto flex items-center justify-center h-[5.875rem] max-w-screen">
       <motion.header
         className={cn(
-          'fixed w-screen px-[50px] top-0 py-[50px] pt-[100px] flex items-center justify-between h-[5.875rem] max-w-[95.625rem]',
+          'fixed w-screen lg:px-[50px] md:px-5 sm:px-4 px-3 top-0 py-[50px] pt-[100px] flex items-center justify-between h-[5.875rem] max-w-[95.625rem]',
         )}
         initial={{
           opacity: 0,
           y: -20,
-          backgroundColor: 'transparent',
+          backgroundColor: 'rgba(252, 250, 247, 0)', // Прозрачное состояние через RGBA
           paddingTop: '100px',
         }}
         animate={{
           opacity: 1,
           y: 0,
-          backgroundColor: scrolled ? '#FCFAF7' : 'transparent',
-          paddingTop: scrolled ? '50px' : '100px', // Плавное изменение top
+          backgroundColor: scrolled
+            ? 'rgba(252, 250, 247, 1)'
+            : 'rgba(252, 250, 247, 0)', // Прозрачный цвет через RGBA
+          paddingTop: scrolled ? '50px' : '100px', // Плавное изменение paddingTop
         }}
         transition={{
           duration: 0.5,
-          backgroundColor: { type: 'tween', ease: 'easeInOut', duration: 0.5 },
-          top: { type: 'tween', ease: 'easeInOut', duration: 0.5 }, // Плавное изменение top
+          backgroundColor: { type: 'tween', ease: 'easeInOut', duration: 0.5 }, // Анимация фона
+          paddingTop: { type: 'tween', ease: 'easeInOut', duration: 0.5 }, // Анимация paddingTop
         }}
       >
         <div className="lg:hidden flex items-center">
@@ -80,6 +82,7 @@ const Header: FC = () => {
         <nav className="hidden lg:flex gap-[1.875rem]">
           {links.map((item) => (
             <Link
+              onClick={() => setIsMenuOpen(false)}
               href={item.href}
               key={`${item.href} - ${item.title}`}
               className={cn(
@@ -123,7 +126,7 @@ const Header: FC = () => {
 
           {/* Поиск, избранное и кнопка, видны на всех экранах */}
           <div className="flex gap-[20px] items-center">
-            <Search scrolled={scrolled} />
+            {/* <Search scrolled={scrolled} /> */}
             <Input className="hidden" />
             <Link href={'favorites'}>
               <Heart
@@ -138,8 +141,8 @@ const Header: FC = () => {
 
         {/* Бургер-меню (при открытии) */}
         {isMenuOpen && (
-          <div className="lg:hidden fixed top-0 left-0 w-full h-full bg-white z-20 flex flex-col justify-between items-start py-5 px-[50px]">
-            <nav className="flex flex-col gap-5 mt-[150px]">
+          <div className="lg:hidden fixed top-0 left-0 w-full h-full bg-white z-20 flex flex-col justify-between items-start py-5 lg:px-[50px] md:px-5 sm:px-4 px-3">
+            <nav className="flex flex-col gap-5 mt-[120px]">
               {links.map((item) => (
                 <Link
                   href={item.href}

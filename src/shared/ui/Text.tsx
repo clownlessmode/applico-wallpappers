@@ -11,9 +11,9 @@ const textVariants = cva('transition-all', {
       white: 'text-background',
     },
     textSize: {
-      small: 'lg:text-[14px]',
-      medium: 'lg:text-[18px] md:text-[16px] sm:text-[14px]',
-      large: 'lg:text-[22px] md:text-[20px] sm:text-[18px]',
+      small: 'lg:text-[16px] md:text-[14px] sm:text-[14px] text-[14px] ',
+      medium: 'lg:text-[18px] md:text-[16px] sm:text-[16px] text-[16px]',
+      large: 'lg:text-[22px] md:text-[20px] sm:text-[18px] text-[16px]',
     },
   },
   defaultVariants: {

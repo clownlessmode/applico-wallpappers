@@ -9,9 +9,9 @@ import SendRequestForm from '../../feautres/send-request-form/SendRequestForm';
 
 const SendRequest: FC = () => {
   return (
-    <div className="grid lg:grid-cols-1 xl:grid-cols-2 gap-6 md:grid-cols-1">
+    <div className="grid lg:grid-cols-1 xl:grid-cols-2 gap-6 md:grid-cols-1 ">
       <Section
-        className="flex-col xl:py-[50px] lg:py-[50px] md:py-5 sm:py-4"
+        className="flex-col xl:py-[50px] lg:py-[50px] py-8"
         background={'dark'}
         id={'request'}
       >

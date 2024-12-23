@@ -118,7 +118,7 @@ const Faq: FC = () => {
       background={'dark'}
       text={'Отвечаем на частые вопросы'}
       id="faq"
-      className="lg:py-[50px] md:py-5 sm:py-4"
+      className="lg:py-[50px] md:py-5 sm:py-4 py-4"
     >
       <Accordion type="single" collapsible>
         {items.map((item, index) => (

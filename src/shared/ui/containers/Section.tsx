@@ -7,13 +7,13 @@ import { cn } from '@/src/shared/lib/utils';
 import Title from '../Title';
 
 const sectionVariants = cva(
-  'transition-all flex flex-col lg:gap-[50px] md:gap-5 sm:gap-4',
+  'transition-all flex flex-col lg:gap-[50px] md:gap-5 sm:gap-4 gap-3',
   {
     variants: {
       padding: {
         small: 'px-4',
         medium: 'px-5',
-        large: 'lg:px-[50px] md:px-5 sm:px-4',
+        large: 'lg:px-[50px] md:px-5 sm:px-4 px-3',
       },
       background: {
         light: 'bg-background',
