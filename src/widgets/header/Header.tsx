@@ -135,7 +135,7 @@ const Header: FC = () => {
                 className={scrolled ? 'text-foreground' : 'text-background'}
               />
             </Link>
-            <Link href={'catalog'}>
+            <Link href={'catalog'} className="block lg:hidden">
               <Button variant={scrolled ? 'dark' : 'light'}>
                 <div
                   className={cn(

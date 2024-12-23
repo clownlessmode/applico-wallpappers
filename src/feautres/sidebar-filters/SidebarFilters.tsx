@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import type { Dispatch, FC, SetStateAction } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { ChevronUp } from 'lucide-react';
+import { ChevronUp, SearchIcon } from 'lucide-react';
 
 import { Input } from '@/src/shared/ui/input';
 import filters from '@/src/widgets/catalogue/filters';
@@ -146,12 +146,18 @@ const SidebarFilters: FC<Props> = ({
 
   return (
     <div className="sidebar md:max-w-full gap-[50px] lg:max-w-[300px] bg-foreground w-full p-[28px] h-fit">
-      <Input
-        className="w-full"
-        placeholder="Поиск..."
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-      />
+      <div className="w-full relative">
+        <Input
+          className="w-full"
+          placeholder="Поиск..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+        <SearchIcon
+          className="absolute right-5 top-4 opacity-20"
+          color="#221F20"
+        />
+      </div>
       <div className="flex flex-col gap-2">
         {filters.map((item) => {
           const isOpen = openItems.includes(item.id);

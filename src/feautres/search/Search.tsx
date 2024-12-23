@@ -96,7 +96,7 @@ const Search: FC<Props> = ({ scrolled }) => {
               <button
                 type="submit"
                 aria-label="Поиск"
-                className="absolute opacity-50 right-10 top-1/2 transform -translate-y-1/2"
+                className="absolute opacity-20 right-10 top-1/2 transform -translate-y-1/2"
               >
                 <SearchIcon strokeWidth={1.5} />
               </button>
