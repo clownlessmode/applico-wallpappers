@@ -17,13 +17,14 @@ import links from './links';
 const Header: FC = () => {
   const pathname = usePathname(); // Получаем текущий путь
   const isFavoritesPage = pathname === '/favorites'; // Проверяем, находится ли пользователь на странице каталога
+  const isSearchPage = pathname === '/search'; // Проверяем, находится ли пользователь на странице каталога
 
-  const [scrolled, setScrolled] = useState(isFavoritesPage);
+  const [scrolled, setScrolled] = useState(isFavoritesPage || isSearchPage);
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Состояние для бургер-меню
 
   useEffect(() => {
     const handleScroll = () => {
-      if (pathname === '/favorites') {
+      if (pathname === '/favorites' || pathname === '/search') {
         setScrolled(true); // Фиксируем scrolled в true для страницы favorites
       } else if (window.scrollY > 50) {
         setScrolled(true);

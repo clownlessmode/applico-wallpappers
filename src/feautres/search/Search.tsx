@@ -2,7 +2,8 @@
 import { AnimatePresence, motion } from 'motion/react';
 import { SearchIcon } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
-import type { FC } from 'react';
+import { useRouter } from 'next/navigation'; // Для переноса на другую страницу
+import type { FC, FormEvent } from 'react';
 
 import { Input } from '@/src/shared/ui/input';
 import { cn } from '@/src/shared/lib/utils';
@@ -13,7 +14,9 @@ interface Props {
 
 const Search: FC<Props> = ({ scrolled }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [query, setQuery] = useState('');
   const searchRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   // Закрыть поиск при клике вне компонента
   useEffect(() => {
@@ -32,6 +35,15 @@ const Search: FC<Props> = ({ scrolled }) => {
     };
   }, []);
 
+  // Обработчик отправки формы или нажатия кнопки
+  const handleSubmit = (event: FormEvent) => {
+    event.preventDefault();
+    if (query.trim()) {
+      router.push(`/search?query=${query}`);
+      setIsVisible(false);
+    }
+  };
+
   return (
     <div ref={searchRef}>
       <button
@@ -47,16 +59,48 @@ const Search: FC<Props> = ({ scrolled }) => {
       <AnimatePresence>
         {isVisible && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{
+              opacity: 0,
+              y: -20,
+              backgroundColor: 'rgba(252, 250, 247, 0)',
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              backgroundColor: scrolled
+                ? 'rgba(252, 250, 247, 1)'
+                : 'rgba(252, 250, 247, 0)',
+              top: scrolled ? '100px' : '150px',
+            }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="absolute top-[140px] left-0 w-full z-20 flex justify-center px-[50px]"
+            transition={{
+              duration: 0.3,
+              backgroundColor: {
+                type: 'tween',
+                ease: 'easeInOut',
+                duration: 0.5,
+              },
+            }}
+            className="absolute left-0 w-full pb-[20px] z-20 flex justify-center px-[50px]"
           >
-            <Input
-              className="w-full max-w-[95.625rem]"
-              placeholder="Поиск..."
-            />
+            <form
+              onSubmit={handleSubmit}
+              className="relative w-full max-w-[95.625rem]"
+            >
+              <Input
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Поиск..."
+                className="w-full pr-10"
+              />
+              <button
+                type="submit"
+                aria-label="Поиск"
+                className="absolute opacity-50 right-10 top-1/2 transform -translate-y-1/2"
+              >
+                <SearchIcon strokeWidth={1.5} />
+              </button>
+            </form>
           </motion.div>
         )}
       </AnimatePresence>

@@ -36,9 +36,9 @@ const Hero: FC<Props> = ({ title, description = true }) => {
       }}
       className={cn(
         'w-full text-background py-[30px] flex items-start justify-between flex-col ',
-        'lg:px-[50px] lg:bg-green-500',
-        'md:px-5 md:bg-yellow-500',
-        'sm:px-4 sm:bg-orange-500 sm:h-[586px]',
+        'lg:px-[50px] ',
+        'md:px-5 ',
+        'sm:px-4  sm:h-[586px]',
         'px-3 bg-red-500 h-[540px]',
       )}
     >
