@@ -39,7 +39,7 @@ const Hero: FC<Props> = ({ title, description = true }) => {
         'lg:px-[50px] ',
         'md:px-5 ',
         'sm:px-4  sm:h-[586px]',
-        'px-3 bg-red-500 h-[540px]',
+        'px-3 h-[540px]',
       )}
     >
       <div className="invisible" />
