@@ -14,7 +14,7 @@ import {
 const items = [
   'https://applico.ru/upload/iblock/51d/vvqfz32jvjos2h2plkdcudaotzzca0qs.jpg',
   'https://applico.ru/upload/iblock/657/jvynldfjufgfeptpf2p3pkcenp66s21t.jpeg',
-  'https://applico.ru/upload/iblock/945/8uay2w6m8q318zti6nsrwrjcis61vmry.png',
+  // 'https://applico.ru/upload/iblock/945/8uay2w6m8q318zti6nsrwrjcis61vmry.png',
   'https://applico.ru/upload/iblock/f7b/0y9iyfzje3dmt47i5yw54avkdj4pqaks.jpg',
 ];
 

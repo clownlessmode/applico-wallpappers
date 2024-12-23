@@ -7,7 +7,7 @@ import { cn } from '@/src/shared/lib/utils';
 import Title from '../Title';
 
 const sectionVariants = cva(
-  'transition-all flex flex-col lg:gap-[50px] md:gap-5 sm:gap-4 gap-3',
+  'transition-all flex flex-col lg:gap-[50px] md:gap-7 sm:gap-6 gap-5',
   {
     variants: {
       padding: {
