@@ -58,7 +58,7 @@ const Header: FC = () => {
           backgroundColor: scrolled
             ? 'rgba(252, 250, 247, 1)'
             : 'rgba(252, 250, 247, 0)', // Прозрачный цвет через RGBA
-          paddingTop: scrolled ? '50px' : '100px', // Плавное изменение paddingTop
+          paddingTop: scrolled ? '50px' : '50px', // Плавное изменение paddingTop
         }}
         transition={{
           duration: 0.5,
