@@ -52,8 +52,8 @@ const Catalogue: FC = () => {
   return (
     <Section className="min-h-screen">
       <Title>Каталог</Title>
-      <aside className="flex gap-[55px] flex-col-reverse lg:flex-row">
-        <div className="lg:sticky lg:top-[120px] self-start">
+      <aside className="flex gap-[55px] flex-col lg:flex-row">
+        <div className="lg:sticky lg:top-[120px] self-start lg:w-fit w-full">
           <SidebarFilters
             openItems={openItems}
             toggleItem={toggleItem}

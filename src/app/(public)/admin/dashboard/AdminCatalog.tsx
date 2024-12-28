@@ -51,8 +51,8 @@ const Catalogue: FC = () => {
   return (
     <Section className="min-h-screen">
       <Title>Админ каталог</Title>
-      <aside className="flex gap-[55px] flex-col-reverse lg:flex-row">
-        <div className="lg:sticky lg:top-[120px] self-start">
+      <aside className="flex gap-[55px] flex-col lg:flex-row">
+        <div className="lg:sticky lg:top-[120px] self-start lg:w-fit w-full">
           <AddItem />
           <SidebarFilters
             openItems={openItems}

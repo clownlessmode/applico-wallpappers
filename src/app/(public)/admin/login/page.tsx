@@ -6,6 +6,7 @@ import type { FC, FormEvent } from 'react';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Lock } from 'lucide-react';
+import Cookies from 'js-cookie'; // Исправленный импорт
 
 import { Button } from '@/src/shared/ui/button';
 import { Input } from '@/src/shared/ui/input';
@@ -26,7 +27,7 @@ const AdminLogin: FC = () => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  const handleLogin = (event: FormEvent) => {
+  const handleLogin = async (event: FormEvent) => {
     event.preventDefault();
     setLoading(true);
     setError(null);
@@ -36,7 +37,10 @@ const AdminLogin: FC = () => {
 
     // Сравниваем введенный код с кодом из окружения
     if (code === adminCode) {
-      // Если код правильный, перенаправляем в админку
+      // Если код правильный, сохраняем его в cookies
+      Cookies.set('code', code, { expires: 1 }); // Сохраняем на 1 день
+
+      // Перенаправляем в админку
       router.push('/admin/dashboard');
     } else {
       // Если код неправильный, выводим ошибку
