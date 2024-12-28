@@ -76,7 +76,7 @@ const BuyForm: FC<Props> = ({ onSuccess, datas }) => {
 
   return (
     <form
-      className="flex flex-col gap-[10px] mt-[80px]"
+      className="flex flex-col gap-[10px] mt-[50px] max-h-[calc(100vh-100px)] overflow-y-auto"
       onSubmit={handleSubmit(onSubmit)}
     >
       <Controller
