@@ -10,6 +10,7 @@ import { cn } from '@/src/shared/lib/utils';
 import { Input } from '@/src/shared/ui/input';
 import { Button } from '@/src/shared/ui/button';
 import { Checkbox } from '@/src/shared/ui/checkbox';
+import Text from '@/src/shared/ui/Text';
 
 import { RadioCard } from './RadioCard';
 import type { Wallpaper } from '../sidebar-filters/SidebarFilters';
@@ -75,7 +76,7 @@ const BuyForm: FC<Props> = ({ onSuccess, datas }) => {
 
   return (
     <form
-      className="flex flex-col gap-[10px]"
+      className="flex flex-col gap-[10px] mt-[80px]"
       onSubmit={handleSubmit(onSubmit)}
     >
       <Controller
@@ -86,7 +87,7 @@ const BuyForm: FC<Props> = ({ onSuccess, datas }) => {
           <Input
             {...field}
             placeholder="Ваше имя*"
-            className="rounded-none h-[74px]"
+            className="rounded-none h-[44px] placeholder:text-[16px] pl-3"
           />
         )}
       />
@@ -98,7 +99,7 @@ const BuyForm: FC<Props> = ({ onSuccess, datas }) => {
           <Input
             {...field}
             placeholder="+7 (XXX) XXX-XX-XX*"
-            className="rounded-none h-[74px]"
+            className="rounded-none h-[44px] placeholder:text-[16px] pl-3"
           />
         )}
       />
@@ -110,7 +111,7 @@ const BuyForm: FC<Props> = ({ onSuccess, datas }) => {
           <Input
             {...field}
             placeholder="Ваш email*"
-            className="rounded-none h-[74px]"
+            className="rounded-none h-[44px] placeholder:text-[16px] pl-3"
           />
         )}
       />
@@ -121,40 +122,44 @@ const BuyForm: FC<Props> = ({ onSuccess, datas }) => {
           <Input
             {...field}
             placeholder="Добавить комментарий"
-            className="rounded-none h-[74px]"
+            className="rounded-none h-[44px] placeholder:text-[16px] pl-3"
           />
         )}
       />
 
-      <div className="mt-4 space-y-4">
-        <p className="text-background/40 text-[18px] leading-[20px]">
-          Выберите способ доставки
-        </p>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-4 space-y-2">
+        <Text color={'black'}>Выберите способ доставки</Text>
+        <div className="">
           <Controller
             name="deliveryMethod"
             control={control}
             render={({ field }) => (
-              <>
+              <div className="flex flex-col gap-2">
                 <RadioCard
                   {...field}
                   value="pickup"
                   checked={field.value === 'pickup'}
-                  label="Самовывоз со склада"
+                  title="Самовывоз со склада"
+                  address="г. Москва, ул. Смирновская, д. 25, стр. 1"
+                  cost="0"
                 />
                 <RadioCard
                   {...field}
                   value="moscow"
                   checked={field.value === 'moscow'}
-                  label="Доставка по г. Москва и МО (1200 ₽ в пределах МКАД, +150 ₽ за км за МКАД)"
+                  title="Доставка по г. Москва и МО"
+                  address="г. Москва и Московская область В пределах МКАД — 1200 руб. за МКАД — 1200 руб. + 150 руб. за 1 км."
+                  cost="1200"
                 />
                 <RadioCard
                   {...field}
                   value="regions"
                   checked={field.value === 'regions'}
-                  label="Доставка в регионы РФ (бесплатно до терминала в Москве)"
+                  title="Доставка в регионы РФ"
+                  address="Доставка до терминала транспортной компании в г. Москве осуществляется бесплатно (ПЭК, Байкал-Сервис, Деловые Линии, СДЭК)."
+                  cost="0"
                 />
-              </>
+              </div>
             )}
           />
         </div>
@@ -169,27 +174,31 @@ const BuyForm: FC<Props> = ({ onSuccess, datas }) => {
             <Input
               {...field}
               placeholder="Адрес доставки*"
-              className="rounded-none h-[74px]"
+              className="rounded-none h-[44px] placeholder:text-[16px] pl-3"
             />
           )}
         />
       )}
 
-      <div className="flex items-center gap-2 flex-row mt-[24px]">
+      <div className="flex items-center gap-2 flex-row mt-[8px]">
         <Controller
           name="acceptedPrivacy"
           control={control}
           render={({ field }) => (
-            <Checkbox checked={field.value} onCheckedChange={field.onChange} />
+            <Checkbox
+              checked={field.value}
+              onCheckedChange={field.onChange}
+              className="bg-foreground"
+            />
           )}
         />
-        <p className="text-background/40 text-[18px] leading-[20px]">
+        <Text color={'black'} className="opacity-40">
           Нажимая на кнопку «Оформить заказ», вы даете согласие на обработку
           своих персональных данных.
-        </p>
+        </Text>
       </div>
 
-      <Button variant={'light'} className="w-fit mt-[24px]" type="submit">
+      <Button variant={'dark'} className="w-full" type="submit">
         <div
           className={cn(
             'rounded-full flex text-background items-center justify-center w-[38.95px] h-[38.95px]',

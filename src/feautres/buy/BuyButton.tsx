@@ -20,12 +20,12 @@ const BuyButton: FC<Props> = ({ data }) => {
       <DialogTrigger asChild>
         <button
           onClick={handleOpen} // Открываем модалку при клике
-          className="mt-[20px] text-[14px] w-[114px] h-[43px] bg-foreground rounded-full hover:scale-105 transition-all"
+          className="text-[14px] w-[114px] h-[43px] bg-foreground rounded-full hover:scale-105 transition-all"
         >
           <Text>Купить</Text>
         </button>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent className="pt-10">
         <BuyForm onSuccess={handleClose} datas={data} />
       </DialogContent>
     </Dialog>
