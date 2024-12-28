@@ -16,33 +16,30 @@ if (!token) {
 const bot = new Bot(token);
 const adminChatId = 691976114; // ID для отправки сообщений
 
-// Обработка текстовых сообщений
-bot.on('message:text', async (ctx) => {
-  await ctx.reply(ctx.message.text);
-});
-
-// Обработчик webhook запросов
 export const POST = async (req: NextRequest): Promise<NextResponse> => {
-  // Получение данных из запроса
-  const data = await req.json();
+  try {
+    const data = await req.json();
 
-  if (!data) {
-    return new NextResponse('Bad Request', { status: 400 });
-  }
-  const { name, phone, budget } = data;
+    if (!data) {
+      return new NextResponse('Bad Request', { status: 400 });
+    }
 
-  const formattedMessage = `
+    const { name, phone, budget } = data;
+
+    const formattedMessage = `
 ✨ *Новая заявка на консультацию* ✨
 
 👤 *Имя:* ${name || 'Не указано'}
 📞 *Телефон:* ${phone || 'Не указан'}
 💰 *Бюджет:* ${budget || 'Не указан'}
 
+🕒 *Дата и время заявки:* ${new Date().toLocaleString()}
 `;
-  try {
+
     await bot.api.sendMessage(adminChatId, escapeMessage(formattedMessage), {
       parse_mode: 'MarkdownV2',
     });
+
     return new NextResponse('OK', { status: 200 });
   } catch {
     return new NextResponse('Internal Server Error', { status: 500 });

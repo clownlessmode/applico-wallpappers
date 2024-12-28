@@ -5,6 +5,7 @@ import { Dialog, DialogContent, DialogTrigger } from '@/src/shared/ui/dialog';
 import Text from '@/src/shared/ui/Text';
 
 import type { Wallpaper } from '../sidebar-filters/SidebarFilters';
+import BuyButton from '../buy/BuyButton';
 interface Props {
   data: Wallpaper;
   colors: string[];
@@ -46,9 +47,7 @@ const More: FC<Props> = ({ data, colors }) => {
               ))}
             </div>
           </div>
-          <button className="mt-[20px] text-[14px] w-[114px] h-[43px] bg-foreground rounded-full hover:scale-105 transition-all">
-            <Text>Купить</Text>
-          </button>
+          <BuyButton data={data} />
         </div>
       </DialogContent>
     </Dialog>

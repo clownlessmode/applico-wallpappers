@@ -79,7 +79,7 @@ const SendRequestForm: FC = () => {
 
     try {
       // Отправка данных на сервер для обработки и отправки в Telegram
-      const response = await fetch('/api/bot', {
+      const response = await fetch('/api/consultation', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -7,6 +7,7 @@ import type { Wallpaper } from '@/src/feautres/sidebar-filters/SidebarFilters';
 import More from '@/src/feautres/more/More';
 import AddToFavorites from '@/src/feautres/add-to-favorites/AddToFavorites';
 import Text from '@/src/shared/ui/Text';
+import BuyButton from '@/src/feautres/buy/BuyButton';
 
 import DiscountBadge from './Discount';
 interface Props {
@@ -44,9 +45,7 @@ const WallpepperItem: FC<Props> = ({ data, all }) => {
         </div>
         <div className="flex flex-row gap-y-1 gap-x-1 flex-wrap justify-end">
           <More data={data} colors={colorOptions} />
-          <button className="text-[14px] w-[114px] h-[43px] bg-foreground rounded-full hover:scale-105 transition-all">
-            <Text>Купить</Text>
-          </button>
+          <BuyButton data={data} />
         </div>
       </div>
       <div className="w-full flex justify-between p-[10px] top-0 left-0 absolute">
