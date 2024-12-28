@@ -59,7 +59,6 @@ export const POST = async (req: NextRequest) => {
 📞 *Телефон:* ${phone || 'Не указан'}
 💰 *Бюджет:* ${budget || 'Не указан'}
 
-🕒 *Дата и время:* ${new Date().toLocaleString()}
 `;
   try {
     await bot.api.sendMessage(adminChatId, escapeMessage(formattedMessage), {
