@@ -11,20 +11,31 @@ import Text from '@/src/shared/ui/Text';
 import DiscountBadge from './Discount';
 interface Props {
   data: Wallpaper;
+  all: Wallpaper[];
 }
-const WallpepperItem: FC<Props> = ({ data }) => {
+const WallpepperItem: FC<Props> = ({ data, all }) => {
+  const getColorOptions = (title: string) => {
+    return all
+      .filter((wallpaper) => wallpaper.title === title)
+      .map((w) => w.artikul);
+  };
+  const colorOptions = getColorOptions(data.title);
+
   return (
     <div className="flex flex-col gap-[38px] relative">
       <Image
         alt=""
-        src={data.imageUrl}
-        width={373}
-        height={373}
+        src={`https://hjenbbfgvzkpdwmhjfhq.supabase.co/storage/v1/object/public/wallpepers/${data.artikul}.jpg`}
+        width={1441}
+        height={1000}
         className="aspect-square object-cover w-full"
       />
       <div className="flex justify-between w-full gap-0">
         <div className="flex flex-col gap-[8px] w-full shrink">
-          <p color={'black'} className="subfont text-[32px] w-full">
+          <p
+            color={'black'}
+            className="subfont text-[32px] w-full leading-[32px]"
+          >
             {data.title}
           </p>
           <Text color={'black'} textSize={'medium'}>
@@ -32,14 +43,14 @@ const WallpepperItem: FC<Props> = ({ data }) => {
           </Text>
         </div>
         <div className="flex flex-row gap-y-1 gap-x-1 flex-wrap justify-end">
-          <More data={data} />
+          <More data={data} colors={colorOptions} />
           <button className="text-[14px] w-[114px] h-[43px] bg-foreground rounded-full hover:scale-105 transition-all">
             <Text>Купить</Text>
           </button>
         </div>
       </div>
       <div className="w-full flex justify-between p-[10px] top-0 left-0 absolute">
-        <DiscountBadge />
+        <DiscountBadge discount={data.discount} />
         <AddToFavorites wallpaper={data} />
       </div>
     </div>

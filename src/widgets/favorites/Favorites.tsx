@@ -12,7 +12,7 @@ const Favorites: FC = () => {
   return (
     <Section className="min-h-screen mt-[100px]" text={'Избранное'}>
       <div className="mt-[50px]">
-        <WallpappersList data={FAV} />
+        <WallpappersList data={FAV} isLoading={false} />
       </div>
     </Section>
   );

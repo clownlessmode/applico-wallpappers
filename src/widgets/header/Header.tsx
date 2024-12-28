@@ -18,13 +18,22 @@ const Header: FC = () => {
   const pathname = usePathname(); // Получаем текущий путь
   const isFavoritesPage = pathname === '/favorites'; // Проверяем, находится ли пользователь на странице каталога
   const isSearchPage = pathname === '/search'; // Проверяем, находится ли пользователь на странице каталога
+  const isAdminPage = pathname === '/admin/login';
+  const isAdminDashboardPage = pathname === '/admin/dashboard'; // Проверяем, находится ли пользователь на странице каталога
 
-  const [scrolled, setScrolled] = useState(isFavoritesPage || isSearchPage);
+  const [scrolled, setScrolled] = useState(
+    isFavoritesPage || isSearchPage || isAdminPage || isAdminDashboardPage,
+  );
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Состояние для бургер-меню
 
   useEffect(() => {
     const handleScroll = () => {
-      if (pathname === '/favorites' || pathname === '/search') {
+      if (
+        pathname === '/favorites' ||
+        pathname === '/search' ||
+        pathname === '/admin/login' ||
+        pathname === '/admin/dashboard'
+      ) {
         setScrolled(true); // Фиксируем scrolled в true для страницы favorites
       } else if (window.scrollY > 50) {
         setScrolled(true);
