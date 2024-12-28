@@ -25,6 +25,8 @@ import { Bot } from 'grammy';
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
+import escapeMessage from '../../../shared/lib/escape-message';
+
 // Токен бота
 const token = process.env.NEXT_PUBLIC_TELEGRAM_BOT_TOKEN;
 
@@ -48,13 +50,21 @@ export const POST = async (req: NextRequest) => {
   if (!data) {
     return new NextResponse('Bad Request', { status: 400 });
   }
+  const { name, phone, budget } = data;
 
-  // Отправка сообщения на заданный chat_id
+  const formattedMessage = `
+✨ *Новая заявка* ✨
+
+👤 *Имя:* ${name || 'Не указано'}
+📞 *Телефон:* ${phone || 'Не указан'}
+💰 *Бюджет:* ${budget || 'Не указан'}
+
+🕒 *Дата и время:* ${new Date().toLocaleString()}
+`;
   try {
-    await bot.api.sendMessage(
-      adminChatId,
-      'Новая заявка: ' + JSON.stringify(data),
-    );
+    await bot.api.sendMessage(adminChatId, escapeMessage(formattedMessage), {
+      parse_mode: 'MarkdownV2',
+    });
     return new NextResponse('OK', { status: 200 });
   } catch {
     return new NextResponse('Internal Server Error', { status: 500 });
