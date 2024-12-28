@@ -14,7 +14,7 @@ if (!token) {
 }
 
 const bot = new Bot(token);
-const adminChatId = 691976114; // ID для отправки сообщений
+const adminChatId = 517746645; // ID для отправки сообщений
 
 // Обработка текстовых сообщений
 bot.on('message:text', async (ctx) => {

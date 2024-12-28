@@ -14,7 +14,7 @@ if (!token) {
 }
 
 const bot = new Bot(token);
-const adminChatId = 691976114; // ID для отправки сообщений
+const adminChatId = 517746645; // ID для отправки сообщений
 
 export const POST = async (req: NextRequest): Promise<NextResponse> => {
   try {
