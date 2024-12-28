@@ -87,7 +87,7 @@ const BuyForm: FC<Props> = ({ onSuccess, datas }) => {
           <Input
             {...field}
             placeholder="Ваше имя*"
-            className="rounded-none h-[44px] placeholder:text-[16px] pl-3"
+            className="rounded-none h-[44px] placeholder:text-[16px] pl-3 min-h-[44px]"
           />
         )}
       />
@@ -99,7 +99,7 @@ const BuyForm: FC<Props> = ({ onSuccess, datas }) => {
           <Input
             {...field}
             placeholder="+7 (XXX) XXX-XX-XX*"
-            className="rounded-none h-[44px] placeholder:text-[16px] pl-3"
+            className="rounded-none h-[44px] placeholder:text-[16px] pl-3 min-h-[44px]"
           />
         )}
       />
@@ -111,7 +111,7 @@ const BuyForm: FC<Props> = ({ onSuccess, datas }) => {
           <Input
             {...field}
             placeholder="Ваш email*"
-            className="rounded-none h-[44px] placeholder:text-[16px] pl-3"
+            className="rounded-none h-[44px] placeholder:text-[16px] pl-3 min-h-[44px]"
           />
         )}
       />
@@ -122,7 +122,7 @@ const BuyForm: FC<Props> = ({ onSuccess, datas }) => {
           <Input
             {...field}
             placeholder="Добавить комментарий"
-            className="rounded-none h-[44px] placeholder:text-[16px] pl-3"
+            className="rounded-none h-[44px] placeholder:text-[16px] pl-3 min-h-[44px]"
           />
         )}
       />
@@ -174,7 +174,7 @@ const BuyForm: FC<Props> = ({ onSuccess, datas }) => {
             <Input
               {...field}
               placeholder="Адрес доставки*"
-              className="rounded-none h-[44px] placeholder:text-[16px] pl-3"
+              className="rounded-none h-[44px] placeholder:text-[16px] pl-3 min-h-[44px]"
             />
           )}
         />
