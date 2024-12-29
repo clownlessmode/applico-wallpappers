@@ -1,9 +1,12 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import localFont from 'next/font/local';
+// eslint-disable-next-line import/order
 import type { FC, ReactNode } from 'react';
 
 import './globals.css';
+import { Analytics } from '@vercel/analytics/react';
+
 import { cn } from '@/src/shared/lib/utils';
 import Footer from '@/src/widgets/footer/Footer';
 
@@ -87,6 +90,7 @@ const RootLayout: FC<{ children: ReactNode }> = ({ children }) => {
         <Header />
         {children}
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
