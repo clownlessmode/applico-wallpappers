@@ -47,7 +47,9 @@ const More: FC<Props> = ({ data, colors }) => {
               ))}
             </div>
           </div>
-          <BuyButton data={data} />
+          <div className="mt-[20px]">
+            <BuyButton data={data} />
+          </div>
         </div>
       </DialogContent>
     </Dialog>
